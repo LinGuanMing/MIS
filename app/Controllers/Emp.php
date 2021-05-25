@@ -49,7 +49,7 @@ class Emp extends BaseController
         }
         $db->table('EMPLOYEE')->insert($data);
 
-        return $this->response->redirect(base_url('/listEmp'));
+        return $this->response->redirect(base_url('/Emp'));
     }
 
     // show single user
@@ -84,7 +84,7 @@ class Emp extends BaseController
             $data['MgrID'] = $this->request->getVar('MgrID');
         }
         $db->table('EMPLOYEE')->where('EmpID', $id)->update($data);
-        return $this->response->redirect(base_url('/listEmp'));
+        return $this->response->redirect(base_url('/Emp'));
     }
  
     // delete user
@@ -92,6 +92,6 @@ class Emp extends BaseController
     {
         $db = \Config\Database::connect();
         $data['emp'] = $db->table('EMPLOYEE')->where('EmpID', $id)->delete();
-        return $this->response->redirect(base_url('/listEmp'));
+        return $this->response->redirect(base_url('/Emp'));
     }
 }

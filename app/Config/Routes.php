@@ -35,7 +35,7 @@ $routes->setAutoRoute(true);
 // $routes->get('/', 'Home::index');
 
 // CRUD RESTful Routes
-$routes->get('listEmp', 'Emp::index');
+$routes->get('Emp', 'Emp::index');
 $routes->get('addEmp', 'Emp::create');
 $routes->post('submit-form', 'Emp::store');
 $routes->get('editEmp/(:num)', 'Emp::singleEmp/$1');
