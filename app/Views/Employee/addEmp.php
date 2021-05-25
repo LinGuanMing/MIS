@@ -6,7 +6,7 @@
             <div class="form-group row">
                 <label class="col-md-4 col-form-label">EmpID*</label>
                 <div class="col-md-8">
-                    <input type="text" name="EmpID" id="EmpID" class="form-control" required>
+                    <input type="text" name="EmpID" id="EmpID" class="form-control" value="<?php echo $SEQID['EmpID']; ?>" readonly>
                 </div>
             </div>
             <div class="form-group row">

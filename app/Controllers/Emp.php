@@ -25,7 +25,36 @@ class Emp extends BaseController
     // add user form
 	public function create()
     {
-        echo view('templates/header');
+        $db = \Config\Database::connect();
+        $sql = "SELECT RuleValue+1 AS EmpID FROM REGULATION
+                WHERE RuleKind = 'SEQID'
+                AND RuleID = 'EMPID'";
+        $db->transStart();
+        $query = $db->query($sql);
+        $results = $query->getResultArray();
+        if (count($results)==0)
+        {
+            $data['SEQID'] = ['EmpID' => '000001'];
+            $REG = [
+                'RuleKind' => 'SEQID',
+                'RuleID' => 'EMPID',
+                'RuleValue' => $data['SEQID']
+            ];
+            $db->table('REGULATION')->insert($REG);
+        }
+        else
+        {
+            $data['SEQID'] = ['EmpID' => str_pad($results[0]['EmpID'], 6, '0', STR_PAD_LEFT)];
+            $REG = [
+                'RuleKind' => 'SEQID',
+                'RuleID' => 'EMPID',
+                'RuleValue' => $data['SEQID']
+            ];
+            $db->table('REGULATION')->where(['RuleKind' => 'SEQID', 'RuleID' => 'EMPID'])->update($REG);
+        }
+        $db->transComplete();
+
+        echo view('templates/header', $data);
 		echo view('Employee/addEmp');
         echo view('templates/footer');
     }
