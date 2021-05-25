@@ -32,7 +32,15 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+// $routes->get('/', 'Home::index');
+
+// CRUD RESTful Routes
+$routes->get('listEmp', 'Emp::index');
+$routes->get('addEmp', 'Emp::create');
+$routes->post('submit-form', 'Emp::store');
+$routes->get('editEmp/(:num)', 'Emp::singleEmp/$1');
+$routes->post('update', 'Emp::update');
+$routes->get('delete/(:num)', 'Emp::delete/$1');
 
 /*
  * --------------------------------------------------------------------
