@@ -2,7 +2,7 @@
     <br>
     <h1>員工資料新增</h1>
     <div class="row justify-content-center">
-        <form method="post" id="add_create" name="add_create" action="<?= base_url('/submit-form') ?>">
+        <form method="post" id="add_create" name="add_create" action="<?= base_url('/submit-EmpForm') ?>">
             <div class="form-group row">
                 <label class="col-md-4 col-form-label">EmpID*</label>
                 <div class="col-md-8">

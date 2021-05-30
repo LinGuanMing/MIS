@@ -37,10 +37,17 @@ $routes->setAutoRoute(true);
 // CRUD RESTful Routes
 $routes->get('Emp', 'Emp::index');
 $routes->get('addEmp', 'Emp::create');
-$routes->post('submit-form', 'Emp::store');
+$routes->post('submit-EmpForm', 'Emp::store');
 $routes->get('editEmp/(:num)', 'Emp::singleEmp/$1');
-$routes->post('update', 'Emp::update');
-$routes->get('delete/(:num)', 'Emp::delete/$1');
+$routes->post('updateEmp', 'Emp::update');
+$routes->get('deleteEmp/(:num)', 'Emp::delete/$1');
+
+$routes->get('Org', 'Org::index');
+$routes->get('addOrg', 'Org::create');
+$routes->post('submit-OrgForm', 'Org::store');
+$routes->get('editOrg/(:num)', 'Org::singleOrg/$1');
+$routes->post('updateOrg', 'Org::update');
+$routes->get('deleteOrg/(:num)', 'Org::delete/$1');
 
 /*
  * --------------------------------------------------------------------

@@ -29,7 +29,7 @@
                         <td style="text-align: center;"><?php echo $emp['MgrID']; ?></td>
                         <td style="text-align: center;">
                         <a href="<?php echo base_url('editEmp/'.$emp['EmpID']); ?>" class="btn btn-primary btn-sm">編輯</a>
-                        <a href="<?php echo base_url('delete/'.$emp['EmpID']); ?>" class="btn btn-danger btn-sm">刪除</a>
+                        <a href="<?php echo base_url('deleteEmp/'.$emp['EmpID']); ?>" class="btn btn-danger btn-sm">刪除</a>
                         </td>
                     </tr>
                     <?php endforeach; ?>

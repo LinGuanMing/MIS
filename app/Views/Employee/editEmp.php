@@ -2,7 +2,7 @@
     <br>
     <h1>員工資料修改</h1>
     <div class="row justify-content-center">
-        <form method="post" id="update_user" name="update_user" action="<?= base_url('/update') ?>">
+        <form method="post" id="update_user" name="update_user" action="<?= base_url('/updateEmp') ?>">
             <div class="form-group row">
                 <label class="col-md-4 col-form-label">EmpID*</label>
                 <div class="col-md-8">
