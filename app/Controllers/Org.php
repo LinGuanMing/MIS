@@ -74,7 +74,7 @@ class Org extends BaseController
         {
             $data['MgrID'] = NULL;
         }
-        $db->table('Organization')->insert($data);
+        $db->table('ORGANIZATION')->insert($data);
 
         return $this->response->redirect(base_url('/Org'));
     }
