@@ -72,9 +72,17 @@ class Emp extends BaseController
         {
             $data['OrgID'] = $this->request->getVar('OrgID');
         }
+        else
+        {
+            $data['OrgID'] = NULL;
+        }
         if ($this->request->getVar('MgrID') != '')
         {
             $data['MgrID'] = $this->request->getVar('MgrID');
+        }
+        else
+        {
+            $data['MgrID'] = NULL;
         }
         $db->table('EMPLOYEE')->insert($data);
 
@@ -108,9 +116,17 @@ class Emp extends BaseController
         {
             $data['OrgID'] = $this->request->getVar('OrgID');
         }
+        else
+        {
+            $data['OrgID'] = NULL;
+        }
         if ($this->request->getVar('MgrID') != '')
         {
             $data['MgrID'] = $this->request->getVar('MgrID');
+        }
+        else
+        {
+            $data['MgrID'] = NULL;
         }
         $db->table('EMPLOYEE')->where('EmpID', $id)->update($data);
         return $this->response->redirect(base_url('/Emp'));

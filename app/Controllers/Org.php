@@ -70,6 +70,10 @@ class Org extends BaseController
         {
             $data['MgrID'] = $this->request->getVar('MgrID');
         }
+        else
+        {
+            $data['MgrID'] = NULL;
+        }
         $db->table('Organization')->insert($data);
 
         return $this->response->redirect(base_url('/Org'));
@@ -100,6 +104,10 @@ class Org extends BaseController
         if ($this->request->getVar('MgrID') != '')
         {
             $data['MgrID'] = $this->request->getVar('MgrID');
+        }
+        else
+        {
+            $data['MgrID'] = NULL;
         }
         $db->table('ORGANIZATION')->where('OrgID', $id)->update($data);
         return $this->response->redirect(base_url('/Org'));

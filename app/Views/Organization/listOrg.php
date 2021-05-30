@@ -4,7 +4,7 @@
             <div class="col-md-12">
 				<br>
                 <h1>部門資料維護<br>
-                    <div class="float-right"><a href="<?php echo base_url('/addOrg') ?>" class="btn btn-primary" data-toggle="modal" data-target="#addOrgModal"><span class="fa fa-plus"></span>新增</a></div><br>
+                    <div class="float-right"><a href="<?php echo base_url('/addOrg') ?>" class="btn btn-primary" data-toggle="OrgModal" data-target="#addOrgModal"><span class="fa fa-plus"></span>新增</a></div><br>
                 </h1>
             </div>
             <table class="table table-striped" id="organizationListing">

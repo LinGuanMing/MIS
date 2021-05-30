@@ -4,7 +4,7 @@
             <div class="col-md-12">
 				<br>
                 <h1>員工資料維護<br>
-                    <div class="float-right"><a href="<?php echo base_url('/addEmp') ?>" class="btn btn-primary" data-toggle="modal" data-target="#addEmpModal"><span class="fa fa-plus"></span>新增</a></div><br>
+                    <div class="float-right"><a href="<?php echo base_url('/addEmp') ?>" class="btn btn-primary" data-toggle="EmpModal" data-target="#addEmpModal"><span class="fa fa-plus"></span>新增</a></div><br>
                 </h1>
             </div>
             <table class="table table-striped" id="employeeListing">
