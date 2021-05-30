@@ -6,6 +6,7 @@
             <!-- Default to the left -->
             <strong>&copy; 2021 資料庫系統 - 第一組</strong>
         </footer>
+        <script type="text/javascript" src="/js/jquery-3.2.1.slim.min.js"></script>
         <script type="text/javascript" src="/js/bootstrap.min.js"></script>
     </body>
 </html>
