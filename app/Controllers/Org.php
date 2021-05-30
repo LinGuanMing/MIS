@@ -33,7 +33,7 @@ class Org extends BaseController
         $results = $query->getResultArray();
         if (count($results)==0)
         {
-            $data['SEQID'] = ['OrgID' => '000001'];
+            $data['SEQID'] = ['OrgID' => '00001'];
             $REG = [
                 'RuleKind' => 'SEQID',
                 'RuleID' => 'ORGID',
