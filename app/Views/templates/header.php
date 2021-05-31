@@ -41,6 +41,9 @@
                     <li class="nav-item">
                         <a href="<?php echo base_url('Org') ?>" class="nav-link">部門維護</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="<?php echo base_url('Rule') ?>" class="nav-link">設定檔維護</a>
+                    </li>
                 </ul>
             </div>
         </nav>

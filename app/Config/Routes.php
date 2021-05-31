@@ -49,6 +49,13 @@ $routes->get('editOrg/(:num)', 'Org::singleOrg/$1');
 $routes->post('updateOrg', 'Org::update');
 $routes->get('deleteOrg/(:num)', 'Org::delete/$1');
 
+$routes->get('Rule', 'Rule::index');
+$routes->get('addRule', 'Rule::create');
+$routes->post('submit-RuleForm', 'Rule::store');
+$routes->get('editRule/(:any)', 'Rule::singleRule/$1');
+$routes->post('updateRule', 'Rule::update');
+$routes->get('deleteRule/(:any)', 'Rule::delete/$1');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
