@@ -3,7 +3,7 @@
         <div class="col-12">		
             <div class="col-md-12">
 				<br>
-                <h1>部門資料維護<br>
+                <h1>設定檔維護<br>
                     <div class="float-right"><a href="<?php echo base_url('/addRule') ?>" class="btn btn-primary" data-toggle="RuleModal" data-target="#addRuleModal"><span class="fa fa-plus"></span>新增</a></div><br>
                 </h1>
             </div>
