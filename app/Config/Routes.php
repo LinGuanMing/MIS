@@ -63,6 +63,13 @@ $routes->get('editDutyRule/(:segment)', 'DutyRule::singleDutyRule/$1');
 $routes->post('updateDutyRule', 'DutyRule::update');
 $routes->get('deleteDutyRule/(:segment)', 'DutyRule::delete/$1');
 
+$routes->get('SchedulRule', 'SchedulRule::index');
+$routes->get('addSchedulRule', 'SchedulRule::create');
+$routes->post('submit-SchedulRuleForm', 'SchedulRule::store');
+$routes->get('editSchedulRule/(:num)', 'SchedulRule::singleSchedulRule/$1');
+$routes->post('updateSchedulRule', 'SchedulRule::update');
+$routes->get('deleteSchedulRule/(:num)', 'SchedulRule::delete/$1');
+
 $routes->post('Login/attend', 'Login::attend');
 
 /*

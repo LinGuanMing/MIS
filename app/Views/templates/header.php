@@ -6,6 +6,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>出勤管理系統</title>
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
     <style type="text/css">
         @import url('css/style.css');
 
@@ -40,6 +41,9 @@
                 </li>
                 <li class="nav-item">
                     <a href="<?php echo base_url('Org') ?>" class="nav-link">部門維護</a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?php echo base_url('SchedulRule') ?>" class="nav-link">員工班別維護</a>
                 </li>
                 <li class="nav-item">
                     <a href="<?php echo base_url('DutyRule') ?>" class="nav-link">班別規則維護</a>

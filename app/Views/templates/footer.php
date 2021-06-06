@@ -9,6 +9,7 @@
         <script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
         <!-- <script type="text/javascript" src="/js/jquery-1.19.2.validate.min.js"></script> -->
         <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
         <script type="text/javascript">
             $(function() {
                 $('#form-data').on('submit', function(e) {
@@ -38,6 +39,18 @@
                         }
                     });
                 });
+            });
+
+            $(document).ready(function(){
+                var date_input=$('input[id="date"]'); //our date input has the name "date"
+                var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+                var options={
+                    format: 'yyyy/mm/dd',
+                    container: container,
+                    todayHighlight: true,
+                    autoclose: true,
+                };
+                date_input.datepicker(options);
             });
         </script>
     </body>
