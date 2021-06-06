@@ -12,7 +12,7 @@
                     <tr>
                         <th style="text-align: center;">員工編號</th>
 						<th style="text-align: center;">員工姓名</th>
-                        <th style="text-align: center;">單位</th>
+                        <th style="text-align: center;">部門</th>
 						<th style="text-align: center;">聯絡電話</th>
 						<th style="text-align: center;">主管</th>
                         <th style="text-align: center;">操作</th>
