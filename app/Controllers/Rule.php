@@ -2,8 +2,6 @@
 
 namespace App\Controllers;
 
-use App\Models\EmpModel;
-
 class Rule extends BaseController
 {
 	public function index()

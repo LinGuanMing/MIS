@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use DateTime;
-use Exception;
 
 class Login extends BaseController
 {

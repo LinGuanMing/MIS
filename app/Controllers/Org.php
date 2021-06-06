@@ -2,8 +2,6 @@
 
 namespace App\Controllers;
 
-use App\Models\EmpModel;
-
 class Org extends BaseController
 {
 	public function index()

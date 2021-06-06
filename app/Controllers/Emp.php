@@ -2,8 +2,6 @@
 
 namespace App\Controllers;
 
-use App\Models\EmpModel;
-
 class Emp extends BaseController
 {
 	public function index()

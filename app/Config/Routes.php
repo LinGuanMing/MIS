@@ -56,6 +56,13 @@ $routes->get('editRule/(:any)', 'Rule::singleRule/$1');
 $routes->post('updateRule', 'Rule::update');
 $routes->get('deleteRule/(:any)', 'Rule::delete/$1');
 
+$routes->get('DutyRule', 'DutyRule::index');
+$routes->get('addDutyRule', 'DutyRule::create');
+$routes->post('submit-DutyRuleForm', 'DutyRule::store');
+$routes->get('editDutyRule/(:segment)', 'DutyRule::singleDutyRule/$1');
+$routes->post('updateDutyRule', 'DutyRule::update');
+$routes->get('deleteDutyRule/(:segment)', 'DutyRule::delete/$1');
+
 $routes->post('Login/attend', 'Login::attend');
 
 /*
