@@ -7,7 +7,9 @@ class SchedulRule extends BaseController
 	public function index()
 	{
         $db = \Config\Database::connect();
-        $sql = "SELECT * FROM SCHEDUL";
+        $sql = "SELECT S.*, O.* FROM SCHEDUL S
+                LEFT JOIN EMPLOYEE E ON E.EmpID = S.EmpID
+                LEFT JOIN ORGANIZATION O ON E.OrgID = O.OrgID";
         $query = $db->query($sql);
         $results = $query->getResultArray();
         $db->close();
@@ -33,7 +35,6 @@ class SchedulRule extends BaseController
         $db = \Config\Database::connect();
         $data = [
             'EmpID' => $this->request->getVar('EmpID'),
-            'OrgID'  => $this->request->getVar('OrgID'),
             'DutyID' => $this->request->getVar('DutyID'),
             'From_Time'  => $this->request->getVar('From_Time'),
             'End_Time'  => $this->request->getVar('End_Time'),
@@ -65,7 +66,6 @@ class SchedulRule extends BaseController
         $id = $this->request->getVar('EmpID');
         $data = [
             'DutyID'  => $this->request->getVar('DutyID'),
-            'OrgID'  => $this->request->getVar('OrgID'),
             'From_Time'  => $this->request->getVar('From_Time'),
             'End_Time'  => $this->request->getVar('End_Time'),
             'TXDate' => date('Y-m-d H:i:s', time())

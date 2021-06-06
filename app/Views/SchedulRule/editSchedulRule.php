@@ -15,12 +15,6 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-md-4 col-form-label">OrgID*</label>
-                <div class="col-md-8">
-                    <input type="text" name="OrgID" id="OrgID" class="form-control" value="<?php echo $schedul_obj['OrgID']; ?>" /> 
-                </div>
-            </div>
-            <div class="form-group row">
                 <!-- Date input -->
                 <label class="col-md-4 col-form-label" for="From_Time">From_Time</label>
                 <div class="col-md-8">

@@ -24,7 +24,7 @@
                     <?php foreach($scheduls as $schedul): ?>
                     <tr>
                         <td style="text-align: center;"><?php echo $schedul['EmpID']; ?></td>
-                        <td style="text-align: center;"><?php echo $schedul['OrgID']; ?></td>
+                        <td style="text-align: center;"><?php echo $schedul['OrgID'].($schedul['OrgID'] != "" ? ' ('.$schedul['OrgName'].')' : ""); ?></td>
                         <td style="text-align: center;"><?php echo $schedul['DutyID']; ?></td>
                         <td style="text-align: center;"><?php echo $schedul['From_Time']; ?></td>
                         <td style="text-align: center;"><?php echo $schedul['End_Time']; ?></td>
