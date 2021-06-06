@@ -27,12 +27,6 @@
                     <input type="text" name="Phone" id="Phone" class="form-control" required>
                 </div>
             </div>
-            <div class="form-group row">
-                <label class="col-md-4 col-form-label">MgrID</label>
-                <div class="col-md-8">
-                    <input type="text" name="MgrID" id="MgrID" class="form-control">
-                </div>
-            </div>
 
             <div class="form-group">
             <button type="submit" class="btn btn-primary btn-block">新增資料</button>

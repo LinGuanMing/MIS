@@ -26,7 +26,7 @@
                         <td style="text-align: center;"><?php echo $emp['EmpName']; ?></td>
                         <td style="text-align: center;"><?php echo $emp['OrgID'].($emp['OrgID'] != "" ? ' ('.$emp['OrgName'].')' : ""); ?></td>
                         <td style="text-align: center;"><?php echo $emp['Phone']; ?></td>
-                        <td style="text-align: center;"><?php echo $emp['MgrID']; ?></td>
+                        <td style="text-align: center;"><?php echo ($emp['MgrID'] != $emp['EmpID']) ? $emp['MgrID'] : "" ; ?></td>
                         <td style="text-align: center;">
                         <a href="<?php echo base_url('editEmp/'.$emp['EmpID']); ?>" class="btn btn-primary btn-sm">編輯</a>
                         <a href="<?php echo base_url('deleteEmp/'.$emp['EmpID']); ?>" class="btn btn-danger btn-sm">刪除</a>
