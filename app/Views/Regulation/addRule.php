@@ -1,6 +1,6 @@
 <div class="container">
     <br>
-    <h1>部門資料新增</h1>
+    <h1>設定檔新增</h1>
     <div class="row justify-content-center">
         <form method="post" id="add_create" name="add_create" action="<?= base_url('/submit-RuleForm') ?>">
             <div class="form-group row">

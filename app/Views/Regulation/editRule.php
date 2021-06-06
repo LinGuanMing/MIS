@@ -1,6 +1,6 @@
 <div class="container">
     <br>
-    <h1>部門資料修改</h1>
+    <h1>設定檔修改</h1>
     <div class="row justify-content-center">
         <form method="post" id="update_user" name="update_user" action="<?= base_url('/updateRule') ?>">
             <div class="form-group row">
