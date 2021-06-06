@@ -48,9 +48,8 @@ class Login extends BaseController
                     'msg' => "員工尚未設定班別"
                 ];
             } else {
-
                 $data = [
-                    'DutyID' => 'A',
+                    'DutyID' => $results[0]['DutyID'],
                     'EmpID' => $this->request->getVar('EMPID'),
                     'OrgID' => $results[0]['OrgID'],
                     'ActualOnDutyTime' => date('Y-m-d H:i:s', time()),

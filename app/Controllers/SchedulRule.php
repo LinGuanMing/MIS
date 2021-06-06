@@ -36,7 +36,8 @@ class SchedulRule extends BaseController
             'OrgID'  => $this->request->getVar('OrgID'),
             'DutyID' => $this->request->getVar('DutyID'),
             'From_Time'  => $this->request->getVar('From_Time'),
-            'End_Time'  => $this->request->getVar('End_Time')
+            'End_Time'  => $this->request->getVar('End_Time'),
+            'TXDate' => date('Y-m-d H:i:s', time())
         ];
         $db->table('SCHEDUL')->insert($data);
 
@@ -66,7 +67,8 @@ class SchedulRule extends BaseController
             'DutyID'  => $this->request->getVar('DutyID'),
             'OrgID'  => $this->request->getVar('OrgID'),
             'From_Time'  => $this->request->getVar('From_Time'),
-            'End_Time'  => $this->request->getVar('End_Time')
+            'End_Time'  => $this->request->getVar('End_Time'),
+            'TXDate' => date('Y-m-d H:i:s', time())
         ];
         $db->table('SCHEDUL')->where(['EmpID' => $id])->update($data);
         return $this->response->redirect(base_url('/SchedulRule'));
