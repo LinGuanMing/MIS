@@ -20,13 +20,14 @@ class Login extends BaseController
         if (!$this->validate($rules)) {
             $response = [
                 'success' => false,
-                'msg' => "員工編號未填寫",
+                'msg' => "員工編號未填寫"
             ];
             return $this->response->setJSON($response);
         } else {
             $db = \Config\Database::connect();
             $sql = "SELECT E.EmpID, E.EmpName, E.OrgID, S.DutyID, DR.DutyName, 
-                        D.ActualOnDutyTime, D.ActualOffDutyTime
+                        D.ActualOnDutyTime, D.ActualOffDutyTime,
+                        DR.RegularOnDutyTime, DR.RegularOffDutyTime
                     FROM EMPLOYEE E
                     LEFT JOIN DUTY D ON D.EmpID = E.EmpID AND D.ActualOffDutyTime IS NULL
                     LEFT JOIN ORGANIZATION O ON O.OrgID = E.OrgID
@@ -55,17 +56,14 @@ class Login extends BaseController
                     'DutyID' => $results[0]['DutyID'],
                     'EmpID' => $this->request->getVar('EMPID'),
                     'OrgID' => $results[0]['OrgID'],
-                    'ActualOnDutyTime' => date('Y-m-d H:i:s', time()),
+                    'ActualOnDutyTime' => date('Y-m-d H:i:s', time())
                 ];
                 if ($db->table('DUTY')->insert($data)) {
-                    $_msg = sprintf(
-'%s %s %s 
-簽到成功！
-簽到時間：%s', 
-$results[0]['DutyName'],
-$results[0]['EmpID'], 
-$results[0]['EmpName'],
-$data['ActualOnDutyTime']);
+                    $_msg = sprintf('%s %s %s <br />簽到成功！<br />簽到時間：%s', 
+                        $results[0]['DutyName'],
+                        $results[0]['EmpID'], 
+                        $results[0]['EmpName'],
+                        $data['ActualOnDutyTime']);
                     $response = [
                         'success' => true,
                         'msg' => $_msg
@@ -84,16 +82,12 @@ $data['ActualOnDutyTime']);
                     'ActualOffDutyTime' => date('Y-m-d H:i:s', time()),
                 ];
                 if ($db->table('DUTY')->where(['EmpID' => $results[0]['EmpID'],'ActualOnDutyTime' => $results[0]['ActualOnDutyTime']])->update($data)) {
-                    $_msg = sprintf(
-'%s %s %s 
-簽退成功！
-簽到時間：%s
-簽退時間：%s', 
-$results[0]['DutyName'],
-$results[0]['EmpID'], 
-$results[0]['EmpName'],
-$results[0]['ActualOnDutyTime'],
-$data['ActualOffDutyTime']);
+                    $_msg = sprintf('%s %s %s <br />簽退成功！<br />簽到時間：%s<br />簽退時間：%s', 
+                        $results[0]['DutyName'],
+                        $results[0]['EmpID'], 
+                        $results[0]['EmpName'],
+                        $results[0]['ActualOnDutyTime'],
+                        $data['ActualOffDutyTime']);
                     $response = [
                         'success' => true,
                         'msg' => $_msg

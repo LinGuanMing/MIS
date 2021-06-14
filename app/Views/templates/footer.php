@@ -32,11 +32,22 @@
                             //console.log(response.msg);
                             if (response.success) {
                                 EMPID_input.val('');
-                                alert(response.msg);
+                                $.confirm({
+                                    title: 'Success!',
+                                    content: response.msg,
+                                    type: 'green',
+                                    typeAnimated: true,
+                                    buttons: {
+                                        tryAgain: {
+                                            text: '確認',
+                                            btnClass: 'btn-green'
+                                        }
+                                    }
+                                });
                             } else {
                                 $.confirm({
-                                    title: '簽到失敗!',
-                                    content: 'Error Message：' + response.msg,
+                                    title: 'Error!',
+                                    content: 'Message：' + response.msg,
                                     type: 'orange',
                                     typeAnimated: true,
                                     buttons: {
@@ -50,7 +61,7 @@
                         },
                         error: function() {
                             $.confirm({
-                                title: '簽到失敗!',
+                                title: 'Error!',
                                 type: 'orange',
                                 typeAnimated: true,
                                 buttons: {
