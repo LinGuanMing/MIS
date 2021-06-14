@@ -10,6 +10,7 @@
         <!-- <script type="text/javascript" src="/js/jquery-1.19.2.validate.min.js"></script> -->
         <script type="text/javascript" src="/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
         <script type="text/javascript">
             $(function() {
                 $('#form-data').on('submit', function(e) {
@@ -33,11 +34,32 @@
                                 EMPID_input.val('');
                                 alert(response.msg);
                             } else {
-                                alert("簽到失敗!\r\n" + "Error Message：" + response.msg);
+                                $.confirm({
+                                    title: '簽到失敗!',
+                                    content: 'Error Message：' + response.msg,
+                                    type: 'orange',
+                                    typeAnimated: true,
+                                    buttons: {
+                                        tryAgain: {
+                                            text: '確認',
+                                            btnClass: 'btn-orange'
+                                        }
+                                    }
+                                });
                             }
                         },
                         error: function() {
-                            alert("簽到失敗!");
+                            $.confirm({
+                                title: '簽到失敗!',
+                                type: 'orange',
+                                typeAnimated: true,
+                                buttons: {
+                                    tryAgain: {
+                                        text: '確認',
+                                        btnClass: 'btn-orange'
+                                    }
+                                }
+                            });
                         }
                     });
                 });
