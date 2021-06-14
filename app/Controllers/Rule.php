@@ -34,7 +34,10 @@ class Rule extends BaseController
         $data = [
             'RuleKind' => $this->request->getVar('RuleKind'),
             'RuleID'  => $this->request->getVar('RuleID'),
-            'RuleValue'  => $this->request->getVar('RuleValue')
+            'RuleValue1'  => $this->request->getVar('RuleValue1'),
+            'RuleValue2'  => $this->request->getVar('RuleValue2'),
+            'RuleValue3'  => $this->request->getVar('RuleValue3'),
+            'RuleValue4'  => $this->request->getVar('RuleValue4')
         ];
         $db->table('REGULATION')->insert($data);
 
@@ -62,7 +65,10 @@ class Rule extends BaseController
         $kind = $this->request->getVar('RuleKind');
         $id = $this->request->getVar('RuleID');
         $data = [
-            'RuleValue'  => $this->request->getVar('RuleValue')
+            'RuleValue1'  => $this->request->getVar('RuleValue1'),
+            'RuleValue2'  => $this->request->getVar('RuleValue2'),
+            'RuleValue3'  => $this->request->getVar('RuleValue3'),
+            'RuleValue4'  => $this->request->getVar('RuleValue4')
         ];
         $db->table('REGULATION')->where(['RuleKind' => $kind, 'RuleID' => $id])->update($data);
         return $this->response->redirect(base_url('/Rule'));

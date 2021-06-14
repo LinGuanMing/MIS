@@ -12,7 +12,10 @@
                     <tr>
                         <th style="text-align: center;">設定檔種類</th>
 						<th style="text-align: center;">設定檔類別</th>
-						<th style="text-align: center;">設定值</th>
+						<th style="text-align: center;">設定值1</th>
+						<th style="text-align: center;">設定值2</th>
+						<th style="text-align: center;">設定值3</th>
+						<th style="text-align: center;">設定值4</th>
                         <th style="text-align: center;">操作</th>
                     </tr>
                 </thead>
@@ -22,7 +25,10 @@
                     <tr>
                         <td style="text-align: center;"><?php echo $reg['RuleKind']; ?></td>
                         <td style="text-align: center;"><?php echo $reg['RuleID']; ?></td>
-                        <td style="text-align: center;"><?php echo $reg['RuleValue']; ?></td>
+                        <td style="text-align: center;"><?php echo $reg['RuleValue1']; ?></td>
+                        <td style="text-align: center;"><?php echo $reg['RuleValue2']; ?></td>
+                        <td style="text-align: center;"><?php echo $reg['RuleValue3']; ?></td>
+                        <td style="text-align: center;"><?php echo $reg['RuleValue4']; ?></td>
                         <td style="text-align: center;">
                         <a href="<?php echo base_url('editRule/'.$reg['RuleKind'].'/'.$reg['RuleID']); ?>" class="btn btn-primary btn-sm">編輯</a>
                         <a href="<?php echo base_url('deleteRule/'.$reg['RuleKind'].'/'.$reg['RuleID']); ?>" class="btn btn-danger btn-sm">刪除</a>

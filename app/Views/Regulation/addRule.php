@@ -16,9 +16,27 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-md-4 col-form-label">RuleValue</label>
+                <label class="col-md-4 col-form-label">RuleValue1</label>
                 <div class="col-md-8">
-                    <input type="text" name="RuleValue" id="RuleValue" class="form-control">
+                    <input type="text" name="RuleValue1" id="RuleValue1" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-4 col-form-label">RuleValue2</label>
+                <div class="col-md-8">
+                    <input type="text" name="RuleValue2" id="RuleValue2" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-4 col-form-label">RuleValue3</label>
+                <div class="col-md-8">
+                    <input type="text" name="RuleValue3" id="RuleValue3" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-4 col-form-label">RuleValue4</label>
+                <div class="col-md-8">
+                    <input type="text" name="RuleValue4" id="RuleValue4" class="form-control">
                 </div>
             </div>
 
