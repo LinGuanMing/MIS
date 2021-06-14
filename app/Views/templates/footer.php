@@ -16,6 +16,7 @@
                     e.preventDefault();
 
                     var formData = new FormData(this);
+                    var EMPID_input = $('input[id="EMPID"]');
 
                     $.ajax({
                         url: "<?= base_url('Login/attend') ?>",
@@ -29,7 +30,8 @@
                             console.log(response);
                             //console.log(response.msg);
                             if (response.success) {
-                                alert("簽到成功!");
+                                EMPID_input.val('');
+                                alert(response.msg);
                             } else {
                                 alert("簽到失敗!\r\n" + "Error Message：" + response.msg);
                             }
