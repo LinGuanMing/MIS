@@ -70,6 +70,13 @@ $routes->get('editSchedulRule/(:num)', 'SchedulRule::singleSchedulRule/$1');
 $routes->post('updateSchedulRule', 'SchedulRule::update');
 $routes->get('deleteSchedulRule/(:num)', 'SchedulRule::delete/$1');
 
+$routes->get('Duty', 'Duty::index');
+$routes->get('addDuty', 'Duty::create');
+$routes->post('submit-DutyForm', 'Duty::store');
+$routes->get('editDuty/(:any)', 'Duty::singleDuty/$1');
+$routes->post('updateDuty', 'Duty::update');
+$routes->get('deleteDuty/(:any)', 'Duty::delete/$1');
+
 $routes->post('Login/attend', 'Login::attend');
 
 /*

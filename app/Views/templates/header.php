@@ -37,6 +37,9 @@
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
                 <li class="nav-item">
+                    <a href="<?php echo base_url('Duty') ?>" class="nav-link">出勤資料表</a>
+                </li>
+                <li class="nav-item">
                     <a href="<?php echo base_url('Emp') ?>" class="nav-link">員工資料維護</a>
                 </li>
                 <li class="nav-item">
