@@ -24,7 +24,7 @@ class Emp extends BaseController
 	public function create()
     {
         $db = \Config\Database::connect();
-        $sql = "SELECT RuleValue+1 AS EmpID FROM REGULATION
+        $sql = "SELECT RuleValue1+1 AS EmpID FROM REGULATION
                 WHERE RuleKind = 'SEQID'
                 AND RuleID = 'EMPID'";
         $db->transStart();
@@ -36,7 +36,7 @@ class Emp extends BaseController
             $REG = [
                 'RuleKind' => 'SEQID',
                 'RuleID' => 'EMPID',
-                'RuleValue' => $data['SEQID']
+                'RuleValue1' => $data['SEQID']
             ];
             $db->table('REGULATION')->insert($REG);
         }
@@ -46,7 +46,7 @@ class Emp extends BaseController
             $REG = [
                 'RuleKind' => 'SEQID',
                 'RuleID' => 'EMPID',
-                'RuleValue' => $data['SEQID']
+                'RuleValue1' => $data['SEQID']
             ];
             $db->table('REGULATION')->where(['RuleKind' => 'SEQID', 'RuleID' => 'EMPID'])->update($REG);
         }

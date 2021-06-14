@@ -23,7 +23,7 @@ class Org extends BaseController
 	public function create()
     {
         $db = \Config\Database::connect();
-        $sql = "SELECT RuleValue+1 AS OrgID FROM REGULATION
+        $sql = "SELECT RuleValue1+1 AS OrgID FROM REGULATION
                 WHERE RuleKind = 'SEQID'
                 AND RuleID = 'ORGID'";
         $db->transStart();
@@ -35,7 +35,7 @@ class Org extends BaseController
             $REG = [
                 'RuleKind' => 'SEQID',
                 'RuleID' => 'ORGID',
-                'RuleValue' => $data['SEQID']
+                'RuleValue1' => $data['SEQID']
             ];
             $db->table('REGULATION')->insert($REG);
         }
@@ -45,7 +45,7 @@ class Org extends BaseController
             $REG = [
                 'RuleKind' => 'SEQID',
                 'RuleID' => 'ORGID',
-                'RuleValue' => $data['SEQID']
+                'RuleValue1' => $data['SEQID']
             ];
             $db->table('REGULATION')->where(['RuleKind' => 'SEQID', 'RuleID' => 'ORGID'])->update($REG);
         }
