@@ -23,10 +23,14 @@ class Login extends BaseController
 
         function diffMinutes($STime, $ETime)
         {
-            $stime = getSeconds($STime);
-            $etime = getSeconds($ETime);
-            $result = ($stime - $etime) / 60;
-            return $result;
+            $diff = date_diff(date_create($STime), date_create($ETime));
+            $diffMinute = $diff->days * 24 * 60;
+            $diffMinute += $diff->h * 60;
+            $diffMinute += $diff->i;
+            // $stime = getSeconds($STime);
+            // $etime = getSeconds($ETime);
+            // $result = ($stime - $etime) / 60;
+            return $diffMinute;
         }
 
         $rules = [
