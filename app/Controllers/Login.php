@@ -68,6 +68,12 @@ class Login extends BaseController
                         'success' => true,
                         'msg' => $_msg
                     ];
+                    if (date_format(date_create($data['ActualOnDutyTime']), 'Hi') > 
+                        $results[0]['RegularOnDutyTime']) {
+                        $response['msg'] += '<br />您已經遲到'
+                        .diffHours($data['ActualOnDutyTime'], sprintf('%s %s00', date_format(date_create($data['ActualOnDutyTime']), 'Y-m-d'), $results[0]['RegularOnDutyTime']))
+                        .'分鐘';
+                    }
                 } else {
                     $response = [
                         'success' => false,
@@ -100,6 +106,18 @@ class Login extends BaseController
                 }
             }
             return $this->response->setJSON($response);
+        }
+        
+        function getSeconds($time)
+        {
+            $seconds = date_format(date_create($time), 'H') * 60 * 60;
+            $seconds += date_format(date_create($time), 'i') * 60;
+            return $seconds;
+        }
+
+        function diffHours($STime, $ETime)
+        {
+            return (getSeconds($STime) - getSeconds($ETime)) / 60;
         }
     }
 }
