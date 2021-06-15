@@ -101,8 +101,7 @@ class Login extends BaseController
                     'DutyID' => $results[0]['DutyID'],
                     'EmpID' => $this->request->getVar('EMPID'),
                     'OrgID' => $results[0]['OrgID'],
-                    //'ActualOffDutyTime' => date('Y-m-d H:i:s', time()),
-                    'ActualOffDutyTime' => '2021-06-15 16:38:00',
+                    'ActualOffDutyTime' => date('Y-m-d H:i:s', time())
                 ];
                 if ($db->table('DUTY')->where(['EmpID' => $results[0]['EmpID'],'ActualOnDutyTime' => $results[0]['ActualOnDutyTime']])->update($data)) {
                     $_msg = sprintf('%s %s %s <br />簽退成功！<br />簽到時間：%s<br />簽退時間：%s', 
