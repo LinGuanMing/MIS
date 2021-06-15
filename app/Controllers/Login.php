@@ -81,10 +81,10 @@ class Login extends BaseController
                         $results[0]['EmpName'],
                         $data['ActualOnDutyTime']);
                     if (date_format(date_create($data['ActualOnDutyTime']), 'Hi') > $results[0]['RegularOnDutyTime']) {
-                        $ActualHour = substr($results[0]['RegularOnDutyTime'], 0, 2);
-                        $ActualMinute = substr($results[0]['RegularOnDutyTime'], 2, 2);
+                        $RegularHour = substr($results[0]['RegularOnDutyTime'], 0, 2);
+                        $RegularMinute = substr($results[0]['RegularOnDutyTime'], 2, 2);
                         $_msg .= sprintf('<br />您已經遲到%s分鐘',
-                            diffMinutes($data['ActualOnDutyTime'], sprintf('%s %s:%s:00', date_format(date_create($data['ActualOnDutyTime']), 'Y-m-d'), $ActualHour, $ActualMinute)));
+                            diffMinutes($data['ActualOnDutyTime'], sprintf('%s %s:%s:00', date_format(date_create($data['ActualOnDutyTime']), 'Y-m-d'), $RegularHour, $RegularMinute)));
                     }
                     $response = [
                         'success' => true,
@@ -101,7 +101,8 @@ class Login extends BaseController
                     'DutyID' => $results[0]['DutyID'],
                     'EmpID' => $this->request->getVar('EMPID'),
                     'OrgID' => $results[0]['OrgID'],
-                    'ActualOffDutyTime' => date('Y-m-d H:i:s', time()),
+                    //'ActualOffDutyTime' => date('Y-m-d H:i:s', time()),
+                    'ActualOffDutyTime' => '2021-06-15 16:38:00',
                 ];
                 if ($db->table('DUTY')->where(['EmpID' => $results[0]['EmpID'],'ActualOnDutyTime' => $results[0]['ActualOnDutyTime']])->update($data)) {
                     $_msg = sprintf('%s %s %s <br />簽退成功！<br />簽到時間：%s<br />簽退時間：%s', 
@@ -113,6 +114,14 @@ class Login extends BaseController
                     if (diffMinutes($data['ActualOffDutyTime'], $results[0]['ActualOnDutyTime']) >= 12 * 60) {
                         $_msg .= sprintf('<br />您的工作時數已經超過12小時(%s分鐘)',
                             diffMinutes($data['ActualOffDutyTime'], $results[0]['ActualOnDutyTime']));
+                    }
+                    else if (getSeconds($data['ActualOffDutyTime']) < getSeconds($results[0]['RegularOffDutyTime'])) {
+                        $RegularHour = substr($results[0]['RegularOffDutyTime'], 0, 2);
+                        $RegularMinute = substr($results[0]['RegularOffDutyTime'], 2, 2);
+                        $ActualOffHour = date_format(date_create($data['ActualOffDutyTime']), 'H');
+                        $ActualOffMinute = date_format(date_create($data['ActualOffDutyTime']), 'i');
+                        $_msg .= sprintf('<br />正常下班時間為%s時%s分', $RegularHour, $RegularMinute);
+                        $_msg .= sprintf('<br />打卡時間為%s時%s分，提早%s分鐘下班', $ActualOffHour, $ActualOffMinute, diffMinutes($results[0]['RegularOffDutyTime'], $data['ActualOffDutyTime']));
                     }
                     $response = [
                         'success' => true,
