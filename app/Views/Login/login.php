@@ -9,7 +9,7 @@
 
         <!-- Login Form -->
         <form method="post" id="form-data" action="javascript:void(0)">
-            <input type="text" id="EMPID" class="fadeIn second" name="EMPID" placeholder="員工編號" maxlength="6" />
+            <input type="text" id="EMPID" class="fadeIn second" name="EMPID" placeholder="員工編號" maxlength="6" oninput="value=value.replace(/[^\d]/g,'')" />
             <input type="submit" id="post-btn" class="fadeIn third" value="簽到" />
         </form>
 
