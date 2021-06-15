@@ -13,6 +13,22 @@ class Login extends BaseController
 
     public function attend()
     {
+
+        function getSeconds($time)
+        {
+            $seconds = date_format(date_create($time), 'H') * 60 * 60;
+            $seconds += date_format(date_create($time), 'i') * 60;
+            return $seconds;
+        }
+
+        function diffHours($STime, $ETime)
+        {
+            $stime = getSeconds($STime);
+            $etime = getSeconds($ETime);
+            $result = ($stime - $etime) / 60;
+            return $result;
+        }
+
         $rules = [
             "EMPID" => "required"
         ];
@@ -64,16 +80,16 @@ class Login extends BaseController
                         $results[0]['EmpID'], 
                         $results[0]['EmpName'],
                         $data['ActualOnDutyTime']);
+                    if (date_format(date_create($data['ActualOnDutyTime']), 'Hi') > $results[0]['RegularOnDutyTime']) {
+                        $ActualHour = substr($results[0]['RegularOnDutyTime'], 0, 2);
+                        $ActualMinute = substr($results[0]['RegularOnDutyTime'], 2, 2);
+                        $_msg .= sprintf('<br />您已經遲到%s分鐘'
+                            ,diffHours($data['ActualOnDutyTime'], sprintf('%s %s:%s:00', date_format(date_create($data['ActualOnDutyTime']), 'Y-m-d'), $ActualHour, $ActualMinute)));
+                    }
                     $response = [
                         'success' => true,
                         'msg' => $_msg
                     ];
-                    if (date_format(date_create($data['ActualOnDutyTime']), 'Hi') > 
-                        $results[0]['RegularOnDutyTime']) {
-                        $response['msg'] .= '<br />您已經遲到'
-                        .diffHours($data['ActualOnDutyTime'], sprintf('%s %s00', date_format(date_create($data['ActualOnDutyTime']), 'Y-m-d'), $results[0]['RegularOnDutyTime']))
-                        .'分鐘';
-                    }
                 } else {
                     $response = [
                         'success' => false,
@@ -106,18 +122,6 @@ class Login extends BaseController
                 }
             }
             return $this->response->setJSON($response);
-        }
-        
-        function getSeconds($time)
-        {
-            $seconds = date_format(date_create($time), 'H') * 60 * 60;
-            $seconds += date_format(date_create($time), 'i') * 60;
-            return $seconds;
-        }
-
-        function diffHours($STime, $ETime)
-        {
-            return (getSeconds($STime) - getSeconds($ETime)) / 60;
         }
     }
 }
