@@ -70,7 +70,7 @@ class Login extends BaseController
                     ];
                     if (date_format(date_create($data['ActualOnDutyTime']), 'Hi') > 
                         $results[0]['RegularOnDutyTime']) {
-                        $response['msg'] += '<br />您已經遲到'
+                        $response['msg'] .= '<br />您已經遲到'
                         .diffHours($data['ActualOnDutyTime'], sprintf('%s %s00', date_format(date_create($data['ActualOnDutyTime']), 'Y-m-d'), $results[0]['RegularOnDutyTime']))
                         .'分鐘';
                     }
