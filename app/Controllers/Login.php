@@ -21,7 +21,7 @@ class Login extends BaseController
             return $seconds;
         }
 
-        function diffHours($STime, $ETime)
+        function diffMinutes($STime, $ETime)
         {
             $stime = getSeconds($STime);
             $etime = getSeconds($ETime);
@@ -83,8 +83,8 @@ class Login extends BaseController
                     if (date_format(date_create($data['ActualOnDutyTime']), 'Hi') > $results[0]['RegularOnDutyTime']) {
                         $ActualHour = substr($results[0]['RegularOnDutyTime'], 0, 2);
                         $ActualMinute = substr($results[0]['RegularOnDutyTime'], 2, 2);
-                        $_msg .= sprintf('<br />您已經遲到%s分鐘'
-                            ,diffHours($data['ActualOnDutyTime'], sprintf('%s %s:%s:00', date_format(date_create($data['ActualOnDutyTime']), 'Y-m-d'), $ActualHour, $ActualMinute)));
+                        $_msg .= sprintf('<br />您已經遲到%s分鐘',
+                            diffMinutes($data['ActualOnDutyTime'], sprintf('%s %s:%s:00', date_format(date_create($data['ActualOnDutyTime']), 'Y-m-d'), $ActualHour, $ActualMinute)));
                     }
                     $response = [
                         'success' => true,
@@ -110,6 +110,10 @@ class Login extends BaseController
                         $results[0]['EmpName'],
                         $results[0]['ActualOnDutyTime'],
                         $data['ActualOffDutyTime']);
+                    if (diffMinutes($data['ActualOffDutyTime'], $results[0]['ActualOnDutyTime']) >= 12 * 60) {
+                        $_msg .= sprintf('<br />您的工作時數已經超過12小時(%s分鐘)',
+                            diffMinutes($data['ActualOffDutyTime'], $results[0]['ActualOnDutyTime']));
+                    }
                     $response = [
                         'success' => true,
                         'msg' => $_msg
