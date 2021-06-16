@@ -76,7 +76,7 @@
                 });
             });
 
-            $(document).ready(function(){
+            $(document).ready(function() {
                 var date_input=$('input[id="date"]'); //our date input has the name "date"
                 var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
                 var options={
@@ -87,6 +87,19 @@
                 };
                 date_input.datepicker(options);
             });
+
+            function current() {
+                var today = new Date();
+                str = '現在時間：';
+                str += String(today.getFullYear()).padStart(4, '0') + '-'; // 西元年
+                str += String(today.getMonth() + 1).padStart(2, '0') + '-'; // 月
+                str += String(today.getDate()).padStart(2, '0') + ' '; // 日
+                str += String(today.getHours()).padStart(2, '0') + ':'; // 時
+                str += String(today.getMinutes()).padStart(2, '0') + ':'; // 分
+                str += String(today.getSeconds()).padStart(2, '0'); // 秒
+                return str;
+            }
+            setInterval(function(){$("#nowTime").html(current)}, 1000);
         </script>
     </body>
 </html>

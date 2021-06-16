@@ -7,6 +7,9 @@
             <img src="images/NCKU.jpg" id="icon" alt="User Icon" />
         </div>
 
+        <!-- 顯示目前時間 -->
+        <span id = "nowTime"></span>
+
         <!-- Login Form -->
         <form method="post" id="form-data" action="javascript:void(0)">
             <input type="text" id="EMPID" class="fadeIn second" name="EMPID" placeholder="員工編號" maxlength="6" oninput="value=value.replace(/[^\d]/g,'')" />
